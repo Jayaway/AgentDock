@@ -1,0 +1,31 @@
+{
+  "name": "coding-agents-headless",
+  "version": "1.0.0",
+  "description": "AI Coding Agents 无头管理器 - 一键安装、守护进程、健康检查",
+  "main": "scripts/install-coding-agents.sh",
+  "scripts": {
+    "install": "bash scripts/install-coding-agents.sh",
+    "manage": "bash scripts/manage-agents.sh",
+    "healthcheck": "bash scripts/agents-healthcheck.sh",
+    "status": "bash scripts/manage-agents.sh status",
+    "list": "bash scripts/manage-agents.sh list"
+  },
+  "keywords": [
+    "coding-agent",
+    "headless",
+    "mac-mini",
+    "opencode",
+    "claude-code",
+    "codex",
+    "gemini",
+    "aider",
+    "cursor",
+    "windsurf",
+    "copilot",
+    "openclaw-skill"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

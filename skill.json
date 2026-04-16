@@ -1,0 +1,99 @@
+{
+  "id": "coding-agents-headless",
+  "name": "AI Coding Agents 无头管理器",
+  "version": "1.0.0",
+  "description": "一键安装、无头配置、守护进程、健康检查、远程管理主流 AI 编码代理（OpenCode、Claude Code、Codex CLI、Gemini CLI、Aider、Kilo Code、Cursor、Windsurf、Copilot CLI）",
+  "author": "OpenClaw Community",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openclaw-skills/coding-agents-headless"
+  },
+  "keywords": [
+    "coding-agent",
+    "headless",
+    "mac-mini",
+    "opencode",
+    "claude-code",
+    "codex",
+    "gemini",
+    "aider",
+    "kilo-code",
+    "cursor",
+    "windsurf",
+    "copilot",
+    "daemon",
+    "launchagent",
+    "tailscale",
+    "ssh",
+    "vnc",
+    "healthcheck"
+  ],
+  "trigger": {
+    "type": "command",
+    "keywords": [
+      "安装 AI 编码代理",
+      "配置无头运行",
+      "管理 coding agent",
+      "AI 代理守护进程",
+      "coding agent 健康检查",
+      "headless coding agent",
+      "安装 opencode",
+      "安装 claude code",
+      "安装 aider",
+      "安装 codex cli",
+      "安装 gemini cli",
+      "AI 编码服务器",
+      "Mac mini AI 代理"
+    ]
+  },
+  "parameters": [
+    {
+      "name": "action",
+      "type": "string",
+      "required": false,
+      "default": "install",
+      "description": "执行动作",
+      "options": ["install", "status", "start", "stop", "restart", "healthcheck", "list", "full-setup"]
+    },
+    {
+      "name": "agents",
+      "type": "string",
+      "required": false,
+      "description": "指定代理列表（逗号分隔），如: opencode,claude-code,aider",
+      "options": ["opencode", "claude-code", "codex-cli", "gemini-cli", "aider", "kilo-code", "cursor", "windsurf", "copilot-cli", "all"]
+    },
+    {
+      "name": "headless",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "是否配置无头运行（电源管理 + SSH + VNC）"
+    },
+    {
+      "name": "daemon",
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "description": "是否生成守护进程（LaunchAgent / systemd）"
+    },
+    {
+      "name": "tailscale",
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "description": "是否安装配置 Tailscale 外网穿透"
+    }
+  ],
+  "compatibility": {
+    "os": ["macos", "linux"],
+    "node": ">=22.0.0",
+    "python": ">=3.10",
+    "openclaw": ">=2026.3.0"
+  },
+  "scripts": {
+    "install": "scripts/install-coding-agents.sh",
+    "manage": "scripts/manage-agents.sh",
+    "healthcheck": "scripts/agents-healthcheck.sh"
+  }
+}
